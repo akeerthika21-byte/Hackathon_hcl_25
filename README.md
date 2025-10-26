@@ -117,7 +117,64 @@
         amount : decimal(12,2)
         
         transaction_date : Datetime
-        
+   
+Test case:
+
+Test successful account creation
+
+•	Input: Valid customer_id, account_type='Savings', initial_deposit=5000, branch_name='Main Branch'
+
+•	Expected: Status 200 OK, message "Account created successfully", valid account_number in response
+
+Test missing required fields
+
+•	Input: Missing one or more fields (e.g., no branch_name)
+
+•	Expected: Status 400 BAD REQUEST, message "All fields are required."
+
+Test invalid customer ID (non-numeric)
+
+•	Input: customer_id='abc'
+
+•	Expected: Status 400 BAD REQUEST, message "Invalid customer ID."
+
+Test non-existent customer
+
+•	Input: customer_id not found in database
+
+•	Expected: Status 404 NOT FOUND, message "Customer not found"
+
+Test invalid account type
+
+•	Input: account_type='Fixed'
+
+•	Expected: Status 400 BAD REQUEST, message "Invalid account type"
+
+Test deposit below minimum amount
+
+•	Input: initial_deposit=500
+
+•	Expected: Status 400 BAD REQUEST, message "Minimum initial deposit is ₹1000.00."
+
+Test invalid deposit value (string instead of number)
+
+•	Input: initial_deposit='abc'
+
+•	Expected: Status 400 BAD REQUEST, message "Invalid deposit amount."
+
+Test account number uniqueness
+
+•	Input: Same customer_id, different request
+
+•	Expected: New, unique 12-digit account number generated each time
+
+Test rate limiting
+
+•	Input: Multiple POST requests exceeding throttle limit
+
+•	Expected: Status 429 TOO MANY REQUESTS
+
+
 
 
 
