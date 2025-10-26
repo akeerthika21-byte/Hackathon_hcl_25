@@ -86,6 +86,8 @@
         email : varchar(150)
         
         phone_number : varchar(10)
+
+   		address : varchar(255)
         
         aadhar_number : varchar(12)
         
