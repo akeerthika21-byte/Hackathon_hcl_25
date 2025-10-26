@@ -5,12 +5,15 @@ from django.db import transaction
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.throttling import UserRateThrottle
 from rest_framework.views import APIView
 
 from bank_app.models import Customer, BankAccount, AccountTransaction
 
 
 class BankAccountView(APIView):
+    permission_classes = [IsAuthenticated]
+    throttle_classes = [UserRateThrottle]
     def generate_account_no(self):
         while True:
             acc_no = f"{random.randint(10 ** 11, 10 ** 12 - 1)}"  # 12-digit account number

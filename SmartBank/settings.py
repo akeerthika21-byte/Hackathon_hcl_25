@@ -46,7 +46,15 @@ INSTALLED_APPS = [
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.UserRateThrottle',   # For authenticated users
+        'rest_framework.throttling.AnonRateThrottle',   # For unauthenticated users
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'user': '5/min',      # Each user can make 5 requests per minute
+        'anon': '2/min',      # Unauthenticated users can make 2 requests per minute
+    }
 }
 
 SIMPLE_JWT = {
@@ -105,6 +113,7 @@ DATABASES = {
         'PORT': '3306'
     }
 }
+
 
 
 # Password validation
