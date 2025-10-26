@@ -14,7 +14,9 @@
    
 	Creates a new bank account for an existing or new customer.The API validates user information (name, ID, email, etc.), assigns an account number, and stores account details in the database.
 
-4. Request Body
+4. Tech Stack - Python, Django, MySQL
+
+5. Request Body
 
      {
       
@@ -38,7 +40,7 @@
       
     }
 
-5. Sample successful response
+7. Sample successful response
 
       {
       
@@ -55,7 +57,7 @@
       }
 
 
-6. Sample error responses
+8. Sample error responses
 
     Status: 400 Bad request 
 
