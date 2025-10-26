@@ -20,24 +20,14 @@
 
      {
       
-      "customer_name": "XYZ ",
-      
-      "email": "xyz@example.com",
-      
-      "phone_number": "9876543210",
-      
-      "address": "No.45, Anna Nagar, Chennai",
+      "customer_id": 1,
       
       "account_type": "Savings",
       
       "initial_deposit": 5000,
       
       "branch_code": "CHN001",
-      
-      "aadhar_number": "123456789012",
-      
-      "pan_number": "ABCDE1234F"
-      
+   
     }
 
 7. Sample successful response
